@@ -1,0 +1,55 @@
+Notes for Sever-Client Application
+
+Chat Server:
+
+	InputStreamReader creates a new stream object that can be used to read data from the specified source. 
+	It reads bytes and decodes them into characters. 
+	For improving reading efficiency, you should wrap an InputStreamReader within a BufferedReader.
+	
+	BufferedReader is an "abstraction" that reads text from a character-input stream. 
+	It "buffers" characters so as to provide efficient reading of characters and lines.
+	
+	FileWriter = one character at a time
+	BufferedWriter = one string at a time
+	
+	Once we make a New Thread we must run the thread_name.start()
+	
+	static ArrayList<String> userNames = new ArrayList<String>();
+		Each User must have a unique name
+	static ArrayList<PrintWriter> printWriter = new ArrayList<PrintWriter>();
+		We must store each User's printWriter so that we can send the message to all of the users
+
+
+Chat Client:
+	We will be keeping our instances as static because they are the same for all chatApplicaiton users
+	Example:
+		static JFrame chatWindow;
+		static JTextArea chatArea; // this will be all the messages send by everyone
+		in the group to be viewed here
+		static JTextField textField; //Place to type your message
+		static JLabel blankLabel = new JLabel("				");// used to separate TextArea and TextFeild
+		
+		textField.setEditable(false); // we set this to false so that the user can not send messages unless
+		connected to server
+		//Once connected to server set .setEditable(true)
+		
+		chatArea.setEditable(false); // set to false so user just views messages but cannot edit sent messages
+		
+		System.getProperty("user.home") + "/Desktop"; // gives specific path for each System to Desktop
+		
+Enter Ip Address:
+	1) 127.0.0.1
+	OR
+	2) localhost
+	3) IP address of server host
+	
+	My public ip address is 73.209.29.41
+	
+	
+	
+Check Os: 
+	public class test{
+		public static void main(String[] args) {
+			System.out.println(System.getProperty("os.name").toLowerCase());
+		}
+	}
